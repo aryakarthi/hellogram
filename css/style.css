@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style-type: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: plum;
+}
+
+.wrapper {
+  background-color: #fff;
+  width: 25rem;
+  border-radius: 1rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.form-container {
+  padding: 1.5rem 2rem;
+
+  & h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    color: rebeccapurple;
+  }
+
+  & form {
+    margin: 1rem 0;
+  }
+
+  & .err-msg {
+    color: crimson;
+    background-color: #f8d7da;
+    padding: 0.5rem 0.7rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: none;
+  }
+
+  & .profile-name {
+    display: flex;
+    gap: 1rem;
+  }
+
+  & .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    position: relative;
+
+    & label {
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+      color: teal;
+      font-weight: 500;
+    }
+
+    & input {
+      outline: none;
+    }
+
+    & i {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      cursor: pointer;
+    }
+  }
+
+  & .input input {
+    height: 2.5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+  }
+
+  & .img-file input {
+    font-size: 1rem;
+  }
+
+  & .btn input {
+    font-size: 1rem;
+    height: 3rem;
+    border: none;
+    margin: 0.5rem 0;
+    font-weight: 400;
+    color: #fff;
+    background-color: rebeccapurple;
+    border-radius: 0.4rem;
+    cursor: pointer;
+  }
+
+  & .link {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+
+    & a {
+      color: rebeccapurple;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.users {
+  padding: 1.2rem 1.5rem;
+
+  & header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #aaa;
+
+    & .content {
+      display: flex;
+      align-items: center;
+
+      & img {
+        height: 48px;
+        width: 48px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      & .user-info {
+        margin-left: 1rem;
+
+        & p {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+
+        & span {
+          font-size: 0.9rem;
+          color: teal
+        }
+      }
+    }
+
+    & .logout {
+      background-color: rebeccapurple;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+    }
+  }
+
+  & .search {
+    margin: 1.2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+
+
+    & .tip {
+      font-size: 1rem;
+    }
+
+    & input {
+      font-size: 1rem;
+      position: absolute;
+      height: 2.5rem;
+      width: calc(100% - 3rem);
+      border: 1px solid #ccc;
+      padding: 0 1rem;
+      font-size: 1rem;
+      border-radius: 0.5rem 0 0 0.5rem;
+      outline: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+
+      &.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    & button {
+      width: 3rem;
+      height: 2.5rem;
+      border: none;
+      outline: none;
+      color: rebeccapurple;
+      background-color: #fff;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: all 0.3s ease;
+
+      &.active {
+        color: #fff;
+        background-color: rebeccapurple;
+
+        & i::before {
+          content: "\f00d";
+        }
+      }
+    }
+
+  }
+
+  & .user-list {
+    max-height: 20rem;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    & a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem 0.5rem 0;
+      page-break-after: 0.6rem;
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border: none;
+        margin-bottom: 0px;
+      }
+
+      & .content {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        & img {
+          height: 2.5rem;
+          width: 2.5rem;
+          border-radius: 50%;
+        }
+
+        & .user-info {
+
+          & p {
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+          }
+
+          & span {
+            color: #999;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      & .status {
+        font-size: 0.6rem;
+        color: teal;
+
+        &.offline {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}
+
+.chat-container {
+  & header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+
+    & .back {
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    & img {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+    }
+
+    & .user-info {
+      & p {
+        color: #333;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      & span {
+        color: #999;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  & .chat-box {
+    background-color: #f9f9f9;
+    height: 30rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0 0 1rem 1rem;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    & .chat {
+      margin: 0.5rem 0;
+
+      & .content {
+        & p {
+          font-size: 0.9rem;
+          font-weight: 400;
+          word-wrap: break-word;
+          padding: 0.5rem 1rem;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+      }
+    }
+
+    & .sent {
+      display: flex;
+
+      & .content {
+        margin-left: auto;
+        max-width: calc(100% - 5rem);
+
+        & p {
+          background-color: rebeccapurple;
+          color: #fff;
+          border-radius: 1rem 1rem 0 1rem;
+        }
+      }
+    }
+
+    & .recieved {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+
+      & img {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+      }
+
+      & .content {
+        margin-right: auto;
+        max-width: calc(100% - 5rem);
+
+        & p {
+          background-color: #fff;
+          color: #333;
+          border-radius: 1rem 1rem 1rem 0;
+        }
+      }
+    }
+  }
+
+  & .typing-area {
+    padding: 0.8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    & input {
+      height: 3rem;
+      width: calc(100% - 3rem);
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      outline: none;
+      padding: 0 1rem;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    & button {
+      width: 3rem;
+      border: none;
+      outline: none;
+      color: #fff;
+      background-color: rebeccapurple;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
+}
